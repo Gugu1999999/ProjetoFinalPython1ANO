@@ -1,0 +1,17 @@
+{
+    "Geografia": [
+        "Qual a capital do Brasil?",
+        "Qual o maior rio do mundo?",
+        "Onde fica o Monte Everest?"
+    ],
+    "Historia": [
+        "Em que ano o Brasil foi descoberto?",
+        "Quem proclamou a independência do Brasil?",
+        "Quando a Lei Áurea foi assinada?"
+    ],
+    "Ciencia": [
+        "Qual a fórmula da água?",
+        "O que é a fotossíntese?",
+        "Qual o planeta mais próximo do Sol?"
+    ]
+}
