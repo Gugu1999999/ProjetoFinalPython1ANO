@@ -1,4 +1,12 @@
+from funcoes import *
+from classes import *
 
-print("Bem-vindo ao jogo de perguntas e respostas!")
+
+enunciado("\033[33mShow do Milhão\033[m".center(45))
+while True:
+    menu()
+
+
+
 
 

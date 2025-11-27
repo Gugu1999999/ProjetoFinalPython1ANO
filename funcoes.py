@@ -1,18 +1,29 @@
 import json
-import random 
-
+import random
 
 with open("perguntas.json", "r", encoding="utf-8") as f:
     conteudo = json.load(f)
-    def perguntar_aleatoria():
-        pergunta = random.choice(conteudo["perguntas"])
-        correta = pergunta["resposta_correta"]
-        opcoes = pergunta["opcoes"]
-        print(pergunta)
-    print(perguntar_aleatoria())
+def pergunta_aleatoria():
+    area = random.choice(conteudo["conteudo"])
+    pergunta = random.choice(area["perguntas"])
+    print(f"Área: {area['area']}")
+    print(f"Pergunta: {pergunta['pergunta']}")
+    for resposta in pergunta["respostas"]:
+        print(resposta)
+    return pergunta["correta"]
+    correta = pergunta_aleatoria()
 
-            
-    
+def enunciado(texto):
+    print("-" * 40)
+    print(texto)
+    print("-" * 40)
+
+def menu():
+    print("1. Entrar na competição")
+    print("2. Ver Ranking")
+    print("3. Sair do jogo")
+    escolha = input("Escolha uma opção: ")
+    return escolha
 
 
 
