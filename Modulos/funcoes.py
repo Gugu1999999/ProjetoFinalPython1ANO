@@ -1,5 +1,6 @@
 import json
 import random
+from classes import *
 
 with open("perguntas.json", "r", encoding="utf-8") as f:
     conteudo = json.load(f)
@@ -24,6 +25,11 @@ def menu():
     print("3. Sair do jogo")
     escolha = input("Escolha uma opção: ")
     return escolha
+
+def cadastrar():
+    Usuario = input("Digite seu nome de usuário: ")
+    jog = jogador(Usuario, 0, 0)
+    
 
 
 
