@@ -42,7 +42,7 @@ def cadastrar():
                 usuario = input("Crie seu nome de usuário: ")
     senha = input("Crie sua senha: ")
     jog = jogador(usuario, senha, 0, 0)
-    with open("jogadores.json", "a", encoding="utf-8") as f:
+    with open("Data/jogadores.json", "a", encoding="utf-8") as f:
         json.dumps(jog.__dict__)
     print("Cadastro realizado com sucesso!")
 
