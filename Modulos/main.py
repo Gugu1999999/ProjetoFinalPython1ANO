@@ -1,49 +1,40 @@
 from funcoes import *
 from classes import *
 from time import sleep
-'''
-    print("1. Entrar na competição")
-    print("2. Ver Ranking")
-    print("3. Sair do jogo")
-    escolha = input("Escolha uma opção: ")
-    return escolha'''
 
-resp = "s"
 enunciado("\033[33mShow do Milhão\033[m".center(45))
 while True:
-    escolha = menu3( "Entrar na competição", "Ver Ranking", "Sair do jogo")
-    if escolha == "1":
-        enunciado("Conecte-se ou cadastre-se para jogar!")
-        escolha = menu2("Cadastrar", "Entrar")
-        if escolha == "1":
-            cadastrar()
-            sleep(0.5)
-
-            login()
-        if escolha == "2":
-            login()
-    if escolha == "2":
-        ranking()
+    escolha = menu3("Entrar na competição", "Ver Ranking", "Sair do jogo")
     if escolha == "3":
         sleep(1)
         break
-   
-    enunciado("Bem-vindo ao Show do Milhão!\nResponda às perguntas e acumule pontos!\nQuanto mais pontos, mais perto do milhão.\nBoa sorte!")
-    jogador_atual = login()
+    elif escolha == "2":
+        ranking()
+        input("Pressione ENTER para voltar ao menu...")
+        continue
+    elif escolha == "1":
+        enunciado("Conecte-se ou cadastre-se para jogar!")
+        while True:
+            escolha_login = menu2("Cadastrar", "Entrar")
+            if escolha_login == "1":
+                cadastrar()
+                print("\nCadastro concluído! Agora faça login.\n")
+            elif escolha_login == "2":
+                jogador_atual = login()
+                if jogador_atual:   
+                    break           
+                else:
+                    print("Usuário/senha incorretos! Tente novamente.\n")
+        enunciado("Bem-vindo ao Show do Milhão!\n")
+        print( "Responda às perguntas e acumule pontos!\n", "Quanto mais pontos, mais perto do milhão.\n", "Boa sorte!")
+        enunciado("Iniciando a competição...")
+        sleep(0.5)
+    while True:
+        pontos_atuais = jogador_atual.pontos
+        selPergunta()
 
-enunciado(f"Carregando...")
-sleep(2)
+
+enunciado(f"Carregando...") 
+sleep(2) 
 enunciado("Obrigado por jogar o Show do Milhão!\nAté a próxima!")
-    
-
-
-    
-
-
-
-    
-
-
-
-
-
+      

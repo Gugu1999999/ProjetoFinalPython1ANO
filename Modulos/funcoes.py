@@ -79,6 +79,63 @@ def ranking():
 def voltar_menu():
     enunciado("Voltando ao menu principal...")
 
+{'conteudo': [{'area': 'Matemática', 'perguntas': [{'pergunta': 'Qual a raiz quadrada de 9?', 'respostas': ['A: 2', 'B: 3', 'C: 4', 'D: 5'], 'correta': 'B'}, {'pergunta': 'Quanto é 5 + 5?', 'respostas': ['A: 8', 'B: 9', 'C: 10', 'D: 11'], 'correta': 'C'}]}, {'area': 'História', 'perguntas': [{'pergunta': 'Em que ano o Brasil foi descoberto?', 'respostas': ['A: 1492', 'B: 1500', 'C: 1600', 'D: 1822'], 'correta': 'B'}, {'pergunta': 'Quem proclamou a independência do Brasil?', 'respostas': ['A: Tiradentes', 'B: Getúlio Vargas', 'C: Dom Pedro I', 'D: Princesa Isabel'], 'correta': 'C'}]}]}
+
+def Jogo():
+    # Essa parte do código é para selecionar uma pergunta
+    with open("Data/perguntas.json", "r", encoding="utf-8") as f:
+        dados = json.load(f)
+    area = random.choice(dados["conteudo"])
+    pergunta = random.choice(area["perguntas"])
+    alternativas = pergunta["respostas"]
+    correta = pergunta["correta"]
+
+    #O show do milhão funciona com um total de 17 perguntas de diversas áreas, se responder todas corretamente, ganha o milhão.
+    #Por isso, cada pergunta irá ter uma pontuação diferente, que será acumulada ao longo do jogo. 
+
+    #Dados do jogador:
+    class jogador:
+        '''def __init__(self, nome, senha,):
+            self.nome = nome
+            self.senha = senha
+
+        def pontuação(self, pontos, dinheiro, rank):
+            self.pontos = pontos
+            self.dinheiro = dinheiro
+            self.rank = rank
+            
+        def atualizar_dinheiro(self, valor):
+            self.dinheiro += valor
+
+        def atualizar_rank(self, novo_rank):
+            self.rank = novo_rank'''
+        player = jogador()
+
+    #Agora é o jogo em si.
+    jogador
+    for p in range(1, 18):
+        print(f"Área: {area['area']}")
+        print(pergunta["pergunta"])
+        for alt in alternativas:
+            print =(alt)
+            resposta = input("Escolha a alternativa correta (A, B, C, D): ").strip().upper()
+        if resposta == correta:
+            enunciado("Resposta correta!")
+    
+
+
+
+    
+
+
+
+   
+
+
+
+
+    
+
 
 
 
