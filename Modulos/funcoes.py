@@ -54,13 +54,13 @@ def login():
     while True:
         nome = input("Digite seu nome de usuário: ").strip()
         senha = input("Digite sua senha: ").strip()
+        jogador(nome, senha)
         with open("Data/jogadores.json", "r", encoding="utf-8") as f:
             dados = json.load(f)
         for jogador_data in dados["jogadores"]:
             if jogador_data["nome"] == nome and jogador_data["senha"] == senha:
                 enunciado(f"Bem-vindo de volta, {nome}!")
                 jogador_atual = jogador(nome, senha)
-                jogador_atual.pontuação(jogador_data["pontos"], jogador_data["dinheiro"], jogador_data["rank"])
                 return jogador_atual
         enunciado("Nome de usuário ou senha incorretos. Tente novamente.")
         sleep(0.5)
@@ -82,45 +82,42 @@ def voltar_menu():
 {'conteudo': [{'area': 'Matemática', 'perguntas': [{'pergunta': 'Qual a raiz quadrada de 9?', 'respostas': ['A: 2', 'B: 3', 'C: 4', 'D: 5'], 'correta': 'B'}, {'pergunta': 'Quanto é 5 + 5?', 'respostas': ['A: 8', 'B: 9', 'C: 10', 'D: 11'], 'correta': 'C'}]}, {'area': 'História', 'perguntas': [{'pergunta': 'Em que ano o Brasil foi descoberto?', 'respostas': ['A: 1492', 'B: 1500', 'C: 1600', 'D: 1822'], 'correta': 'B'}, {'pergunta': 'Quem proclamou a independência do Brasil?', 'respostas': ['A: Tiradentes', 'B: Getúlio Vargas', 'C: Dom Pedro I', 'D: Princesa Isabel'], 'correta': 'C'}]}]}
 
 def Jogo():
-    # Essa parte do código é para selecionar uma pergunta
-    with open("Data/perguntas.json", "r", encoding="utf-8") as f:
-        dados = json.load(f)
-    area = random.choice(dados["conteudo"])
-    pergunta = random.choice(area["perguntas"])
-    alternativas = pergunta["respostas"]
-    correta = pergunta["correta"]
-
-    #O show do milhão funciona com um total de 17 perguntas de diversas áreas, se responder todas corretamente, ganha o milhão.
-    #Por isso, cada pergunta irá ter uma pontuação diferente, que será acumulada ao longo do jogo. 
-
-    #Dados do jogador:
-    class jogador:
-        '''def __init__(self, nome, senha,):
-            self.nome = nome
-            self.senha = senha
-
-        def pontuação(self, pontos, dinheiro, rank):
-            self.pontos = pontos
-            self.dinheiro = dinheiro
-            self.rank = rank
-            
-        def atualizar_dinheiro(self, valor):
-            self.dinheiro += valor
-
-        def atualizar_rank(self, novo_rank):
-            self.rank = novo_rank'''
-        player = jogador()
-
-    #Agora é o jogo em si.
-    jogador
-    for p in range(1, 18):
-        print(f"Área: {area['area']}")
+    dinheiro = 0
+    contPerg = 0
+    while True:
+        with open("Data/perguntas.json", "r", encoding="utf-8") as f:  # Essa parte do código é para selecionar uma pergunta
+            dados = json.load(f)
+        area = random.choice(dados["conteudo"])
+        pergunta = random.choice(area["perguntas"])
+        alternativas = pergunta["respostas"]
+        correta = pergunta["correta"]
+        print(f"Área: {area['area']}")                             #Agora é o jogo em si.
         print(pergunta["pergunta"])
         for alt in alternativas:
-            print =(alt)
-            resposta = input("Escolha a alternativa correta (A, B, C, D): ").strip().upper()
+            sleep(0.2)
+            print (alt)
+        resposta = input("Escolha a alternativa correta (A, B, C, D): ").strip().upper()
         if resposta == correta:
+            sleep(0.5)
             enunciado("Resposta correta!")
+            dinheiro += 1000 
+            contPerg += 1
+        else:
+            sleep(0.5)
+            enunciado(f"Resposta incorreta! A resposta correta era {correta}.")
+            dinheiro = dinheiro / 2
+            contPerg += 1
+        if contPerg == 5:
+            jogador.saldo = dinheiro
+            escolha = menu2("Voltar ao menu inicial", "Começar outra partidda")
+            if escolha in "Ss" or escolha == 1:
+                print (f"Você terminou a partida(s) com {jogador.saldo}")
+                continue
+            else:
+                break
+    enunciado(f"Fim da partida! Você agora está com {jogador.saldo}.")
+
+
     
 
 

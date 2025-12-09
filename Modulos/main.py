@@ -13,7 +13,10 @@ while True:
         input("Pressione ENTER para voltar ao menu...")
         continue
     elif escolha == "1":
-        enunciado("Conecte-se ou cadastre-se para jogar!")
+        if jogador_atual != None:
+            break
+        else:
+            enunciado("Conecte-se ou cadastre-se para jogar!")
         while True:
             escolha_login = menu2("Cadastrar", "Entrar")
             if escolha_login == "1":
@@ -29,11 +32,9 @@ while True:
         print( "Responda às perguntas e acumule pontos!\n", "Quanto mais pontos, mais perto do milhão.\n", "Boa sorte!")
         enunciado("Iniciando a competição...")
         sleep(0.5)
-    while True:
-        pontos_atuais = jogador_atual.pontos
-        selPergunta()
-
-
+        Jogo()
+        continue
+    break
 enunciado(f"Carregando...") 
 sleep(2) 
 enunciado("Obrigado por jogar o Show do Milhão!\nAté a próxima!")

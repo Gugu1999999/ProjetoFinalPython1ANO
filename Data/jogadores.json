@@ -20,6 +20,13 @@
             "pontos": 0,
             "dinheiro": 0,
             "rank": "Iniciante"
+        },
+        {
+            "nome": "Maria",
+            "senha": "111",
+            "pontos": 0,
+            "dinheiro": 0,
+            "rank": "Iniciante"
         }
     ]
 }
