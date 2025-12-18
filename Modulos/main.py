@@ -34,10 +34,18 @@ while True:
             else:
                 print("Opção inválida.")
         enunciado("\033[33mShow do Milhão\033[m".center(45))
-        Jogo(jogador_atual)
-        continue 
+        resp = menu3("Entrar na competição", "Ver Ranking", "Sair do jogo")
+        while resp != 3:
+            if resp == "1":
+                Jogo(jogador_atual)
+            if resp == "2":
+                ranking()
+                resp = menu3("Entrar na competição", "Ver Ranking", "Sair do jogo")
+        else:
+            sleep(1)
+            break
     else:
-        print("Opção inválida. Tente novamente.")   
+        enunciado("\033[31mOpção inválida. Tente novamente.\033[m")
 enunciado(f"Carregando...") 
 sleep(2) 
 enunciado("Obrigado por jogar o Show do Milhão!\nAté a próxima!")

@@ -172,11 +172,11 @@ def Jogo(jogador_atual):
 
         if resposta == correta:
             sleep(0.5)
-            enunciado("Resposta correta!")
+            enunciado("\033[32mResposta correta!\033[m")
             dinheiro += 1000 
         else:
             sleep(0.5)
-            enunciado(f"Resposta incorreta! A resposta correta era {correta}.")
+            enunciado(f"\033[31mResposta incorreta! A resposta correta era {correta}.\033[m")
             dinheiro = dinheiro / 2 
         contPerg += 1
         print(f"Dinheiro atual: R${dinheiro:.2f}")
