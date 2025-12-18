@@ -28,7 +28,7 @@
         {
             "nome": "Gustavo",
             "senha": "Gugu1999",
-            "dinheiro": 8000
+            "dinheiro": 11000.0
         },
         {
             "nome": "Anthony",
@@ -46,6 +46,7 @@
             "dinheiro": 5000
         },
         {
+<<<<<<< Updated upstream
             "nome": "Cezare",
             "senha": "uva123456",
             "dinheiro": 0
@@ -64,6 +65,16 @@
             "nome": "Ana2",
             "senha": "Maria5463",
             "dinheiro": 0
+=======
+            "nome": "gabrielGMS",
+            "senha": "gabzhbs55",
+            "dinheiro": 0
+        },
+        {
+            "nome": "viadosafado69",
+            "senha": "viadosafado69",
+            "dinheiro": 3000
+>>>>>>> Stashed changes
         }
     ]
 }
